@@ -1,30 +1,30 @@
 const users = [
   {
-    username: 'user1',
-    email: 'user1@email.com'
+    username: 'JGordon',
+    email: 'JGordon@yahoo.com'
   },
   {
-    username: 'user2',
-    email: 'user2@email.com'
+    username: 'CFerdinand',
+    email: 'CFerdinand@gmail.com'
   },
   {
-    username: 'user3',
-    email: 'user3@email.com'
+    username: 'TCabrera',
+    email: 'TCabrera@mail.com'
   }
 ];
 
 const thoughts = [
   {
-    thoughtText: 'I am user 1',
-    username: 'user1'
+    thoughtText: 'I wonder what is for dinner',
+    username: 'JGordon'
   },
   {
-    thoughtText: 'I am user 2',
-    username: 'user2'
+    thoughtText: 'Gotta keep working',
+    username: 'CFerdinand'
   },
   {
-    thoughtText: 'I am user 3',
-    username: 'user3'
+    thoughtText: 'I want to sleep',
+    username: 'TCabrera'
   }
 ];
 

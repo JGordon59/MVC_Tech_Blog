@@ -15,7 +15,7 @@ module.exports = {
       const thought = await Thought.findOne({ _id: ObjectId(req.params.thoughtId) }).select('-__v');
       
       if (!thought) {
-        res.status(404).json({ message: 'No thought with that ID exists' });
+        res.status(404).json({ message: 'That thought does not exist yet!' });
         return;
       }
       res.status(200).json(thought);
@@ -28,7 +28,7 @@ module.exports = {
       const user = await User.findOne({ username: req.body.username });
 
       if (!user) {
-        res.status(404).json({ message: 'No user with that username exists' });
+        res.status(404).json({ message: 'Uh-oh! No user found.' });
         return;
       }
 
@@ -54,7 +54,7 @@ module.exports = {
       );
 
       if (!updatedThought) {
-        res.status(404).json({ message: 'No thought with that ID exists' });
+        res.status(404).json({ message: 'No user has thought of that yet..' });
         return;
       }
 
@@ -68,7 +68,7 @@ module.exports = {
       const deletedThought = await Thought.findOneAndRemove({ _id: ObjectId(req.params.thoughtId) });
 
       if (!deletedThought) {
-        res.status(404).json({ message: 'No thought with that ID exists' });
+        res.status(404).json({ message: 'No user has thought of that yet..' });
         return;
       }
 
@@ -77,7 +77,7 @@ module.exports = {
         { $pull: { thoughts: ObjectId(deletedThought._id) } }
       );
 
-      res.status(200).json({ message: `Thought has been deleted and removed from it's associated user` })
+      res.status(200).json({ message: `The user has had its memory wiped. Thought Deleted. ` })
     } catch (error) {
       res.status(500).json(error);
     }
@@ -91,7 +91,7 @@ module.exports = {
       )
 
       if (!updatedThought) {
-        res.status(404).json({ message: 'No thought with that ID exists' });
+        res.status(404).json({ message: 'No user has thought of that yet..' });
         return;
       }
 
@@ -109,7 +109,7 @@ module.exports = {
       )
 
       if (!updatedThought) {
-        res.status(404).json({ message: 'No thought with that ID exists' });
+        res.status(404).json({ message: 'No user has thought of that yet..' });
         return;
       }
 

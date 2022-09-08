@@ -19,7 +19,7 @@ module.exports = {
         .select('-__v');
 
       if (!user) {
-        res.status(404).json({ message: 'No user with that ID exists' });
+        res.status(404).json({ message: 'This user does not exist!' });
         return;
       }
 
@@ -46,7 +46,7 @@ module.exports = {
       );
 
       if (!updatedUser) {
-        res.status(404).json({ message: 'No user with that ID exists' });
+        res.status(404).json({ message: 'This user does not exist!' });
         return;
       }
 
@@ -60,13 +60,13 @@ module.exports = {
       const deletedUser = await User.findOneAndRemove({ _id: ObjectId(req.params.userId) });
 
       if (!deletedUser) {
-        res.status(404).json({ message: 'No user with that ID exists' });
+        res.status(404).json({ message: 'This user does not exist!' });
         return;
       }
 
       const deletedThoughts = await Thought.deleteMany({ username: deletedUser._id });
 
-      res.status(200).json({ message: 'User and their associated thoughts have been successfully deleted' });
+      res.status(200).json({ message: 'This user was snapped away by Thanos' });
     } catch (error) {
       res.status(500).json(error);
     }
@@ -80,7 +80,7 @@ module.exports = {
       );
 
       if (!updatedUser) {
-        res.status(404).json({ message: 'No user or friend with that ID exists' });
+        res.status(404).json({ message: 'This friend is currently not on our network, would you like to send them a join request?' });
         return;
       };
 
@@ -104,7 +104,7 @@ module.exports = {
       );
 
       if (!updatedUser) {
-        res.status(404).json({ message: 'No user or friend with that ID exists' });
+        res.status(404).json({ message: 'This friend is currently not on our network, would you like to send them a join request?' });
         return;
       };
 

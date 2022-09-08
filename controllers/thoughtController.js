@@ -77,7 +77,7 @@ module.exports = {
         { $pull: { thoughts: ObjectId(deletedThought._id) } }
       );
 
-      res.status(200).json({ message: `The user has had its memory wiped. Thought Deleted. ` })
+      res.status(200).json({ message: `The user has had their memory wiped. Thought Deleted. ` })
     } catch (error) {
       res.status(500).json(error);
     }
